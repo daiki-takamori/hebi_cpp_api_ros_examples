@@ -159,6 +159,13 @@ public:
     auto eff = gf.getEffort();
     for (int i = 0; i < gf.size(); ++i)
     {
+      // offset correction (self-made)
+      if(i == 3)
+      {
+      	float offset == 11.0 * M_PI / 180;
+      	pos[i] -= offset;
+      }
+      
       joint_state_message_.position[i] = pos[i];
       joint_state_message_.velocity[i] = vel[i];
       joint_state_message_.effort[i] = eff[i];
